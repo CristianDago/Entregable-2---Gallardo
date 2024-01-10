@@ -1,0 +1,56 @@
+
+*{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    
+    }
+    
+    body{
+        background-color: #ededed!important;
+    }
+    
+    h2{
+        font-weight: 400!important;
+    }
+    
+    .navbar {
+        height: 70px;
+        background-color: #ffffff;
+    }
+    
+    .logo {
+        width: 100%;
+    }
+    
+    
+      .carousel-item {
+        height: 350px; 
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+    
+      #carouselExample {
+        overflow: hidden;
+      }
+    
+      .card-img, .card-img-top {
+        height: 200px;
+      }
+
+      .blanco {
+
+        background-color: #ffffff;
+        border-radius: 15px;
+        
+      
+      }
+
+
+      footer {
+   
+        background-color: #ffffff;;
+      }
