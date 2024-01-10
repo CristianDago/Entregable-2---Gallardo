@@ -1,63 +1,63 @@
 // Variables Globales
 
-const cardPropiedades = document.querySelector('.propiedades');	
+const cardPropiedades = document.querySelector('.propiedades');
 const contadorBusqueda = document.querySelector('#contador');
 const btnAgregarPropiedad = document.querySelector('#btnAgregarPropiedad');
 
 
-/* ------ Objetos a través de clases ------ */ 
+/* ------ Objetos a través de clases ------ */
 
 // Propiedades 
 
-class Propiedad { 
- constructor(nombre, descripcion, src, habitaciones, metros) {
-      this.nombre = nombre; 
-      this.descripcion = descripcion;
-      this.src = src; 
-      this.habitaciones = habitaciones;
-      this.metros = metros; 
- }
+class Propiedad {
+  constructor(nombre, descripcion, src, habitaciones, metros) {
+    this.nombre = nombre;
+    this.descripcion = descripcion;
+    this.src = src;
+    this.habitaciones = habitaciones;
+    this.metros = metros;
+  }
 }
 
 // Usuarios 
 
 class Usuario {
   constructor(nombre, email, telefono) {
-    this.nombre = nombre; 
-    this.email = email; 
-    this.telefono = telefono; 
+    this.nombre = nombre;
+    this.email = email;
+    this.telefono = telefono;
   }
 }
 
-/* ------ Array ------ */ 
+/* ------ Array ------ */
 
 // Propiedades 
 
 const propiedades = [
 
-     new Propiedad('Casa de campo', 'Un lugar ideal para descansar de la ciudad', './assets/img/casa_01.jpg', '2', 170 ),
-     new Propiedad('Casa de playa', 'Despierta tus días oyendo el oceano', './assets/img/casa_02.jpg', '2', 130 ),
-     new Propiedad('Casa en el centro', 'Ten cerca de ti todo lo que necesitas', './assets/img/casa_03.jpg', '1', 80 ),
-     new Propiedad('Casa rodante', 'Conviertete en un nómada del mundo sin salir de tu casa', './assets/img/casa_04.jpg', '1', 6 ),
-     new Propiedad('Departamento', 'Desde las alturas todo se ve mejor', './assets/img/casa_05.jpg', '3', 200 ),
-     new Propiedad('Mansión', 'Vive una vida lujosa en la mansión de tus sueños', './assets/img/casa_06.jpg', '5', 500 )
+  new Propiedad('Casa de campo', 'Un lugar ideal para descansar de la ciudad', './assets/img/casa_01.jpg', '2', 170),
+  new Propiedad('Casa de playa', 'Despierta tus días oyendo el oceano', './assets/img/casa_02.jpg', '2', 130),
+  new Propiedad('Casa en el centro', 'Ten cerca de ti todo lo que necesitas', './assets/img/casa_03.jpg', '1', 80),
+  new Propiedad('Casa rodante', 'Conviertete en un nómada del mundo sin salir de tu casa', './assets/img/casa_04.jpg', '1', 6),
+  new Propiedad('Departamento', 'Desde las alturas todo se ve mejor', './assets/img/casa_05.jpg', '3', 200),
+  new Propiedad('Mansión', 'Vive una vida lujosa en la mansión de tus sueños', './assets/img/casa_06.jpg', '5', 500)
 
 ]
 
 // Usuarios 
 
 const usuarios = [
-    new Usuario('Adminitrador', 'administrador@mail.com', '12345678')
+  new Usuario('Adminitrador', 'administrador@mail.com', '12345678')
 ]
 
 
 // Función flecha - Mostrar propiedades
 
 const mostrarPropiedades = () => {
-// Vacío  
-cardPropiedades.textContent = '';
-// ForEach - Ciclo
- propiedades.forEach((propiedad) => {
+  // Vacío  
+  cardPropiedades.textContent = '';
+  // ForEach - Ciclo
+  propiedades.forEach((propiedad) => {
     cardPropiedades.innerHTML += `
       <div class="col py-2">
         <div class="card">
@@ -66,7 +66,7 @@ cardPropiedades.textContent = '';
             <h5 class="card-title">${propiedad.nombre}</h5>
             <p class="card-text">Cuartos: ${propiedad.habitaciones}</p>
             <p class="card-text">Metros: ${propiedad.metros}</p>
-            <button class="btn btn-primary" onclick="mostrarInfoCompleta('${propiedad.nombre}', '${propiedad.descripcion}', '${propiedad.src}', ${propiedad.habitaciones}, ${propiedad.metros})">Ver Detalles</button>
+            <button class="btn-secundario" onclick="mostrarInfoCompleta('${propiedad.nombre}', '${propiedad.descripcion}', '${propiedad.src}', ${propiedad.habitaciones}, ${propiedad.metros})">Ver Detalles</button>
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@ cardPropiedades.textContent = '';
   });
 
 
-// Mostrar cantidad 
+  // Mostrar cantidad 
   contadorBusqueda.innerHTML = (propiedades.length)
 }
 // Llamada a la función mostrar propiedades
@@ -82,7 +82,7 @@ cardPropiedades.textContent = '';
 mostrarPropiedades();
 
 
-/* ------ Agregar nueva propiedad ------ */ 
+/* ------ Agregar nueva propiedad ------ */
 
 
 document.querySelector('#formNuevaPropiedad').addEventListener('submit', function (event) {
@@ -90,7 +90,7 @@ document.querySelector('#formNuevaPropiedad').addEventListener('submit', functio
   agregarPropiedad(event);
 });
 
-const agregarPropiedad = (event) =>{
+const agregarPropiedad = (event) => {
   event.preventDefault(); // Evita la recarga de la página
 
   // Obtener valores del formulario
@@ -102,8 +102,8 @@ const agregarPropiedad = (event) =>{
 
   // Validar que todos los campos estén llenos
   if (!nombre || !descripcion || !src || !habitaciones || !metros) {
-      alert('Debes llenar todos los campos');
-      return;
+    alert('Debes llenar todos los campos');
+    return;
   }
 
   // Crear una nueva instancia de Propiedad y agregarla al array de propiedades
@@ -123,13 +123,13 @@ const agregarPropiedad = (event) =>{
 };
 
 
-/* ------ Guardar las propiedades en el localStorage ------ */ 
+/* ------ Guardar las propiedades en el localStorage ------ */
 
 
 const guardarPropiedades = () => {
   // Convertir el array de propiedades a cadena JSON
   const propiedadesJSON = JSON.stringify(propiedades);
-  
+
   // Guardar en el localStorage
   localStorage.setItem('propiedades', propiedadesJSON);
 };
@@ -162,39 +162,39 @@ mostrarPropiedadesNuevas();
 // Función flecha - Filtro
 
 const filtro = () => {
-	
+
   let dormitorios = (document.querySelector('#dormitorios').value);
   let desde = (document.querySelector('#desde').value);
-  let hasta = (document.querySelector('#hasta').value);	
-	
+  let hasta = (document.querySelector('#hasta').value);
+
   let FiltroPropiedades = propiedades.filter(
-      (propiedad) =>
-        propiedad.habitaciones == dormitorios &&
-        propiedad.metros >= desde &&
-        propiedad.metros <= hasta	
-);	
-	
+    (propiedad) =>
+      propiedad.habitaciones == dormitorios &&
+      propiedad.metros >= desde &&
+      propiedad.metros <= hasta
+  );
 
-if ( dormitorios == ''|| desde == '' || hasta == '' ){
 
-  //ALERT
-	
-	alert('Debes llenar todos los campos');
-	return ;	
-	
-} else if (FiltroPropiedades.length == 0) {
+  if (dormitorios == '' || desde == '' || hasta == '') {
+
+    //ALERT
+
+    alert('Debes llenar todos los campos');
+    return;
+
+  } else if (FiltroPropiedades.length == 0) {
     alert('No se encontró ninguna propiedad en base a los filtros');
     return;
-	 
- } else {
- 
-  // Vacío
-  cardPropiedades.innerHTML= '';	 
 
-  //ForEach - Mostrar propiedades filtradas 
-      
-  FiltroPropiedades.forEach((propiedad) => {
-    cardPropiedades.innerHTML += `
+  } else {
+
+    // Vacío
+    cardPropiedades.innerHTML = '';
+
+    //ForEach - Mostrar propiedades filtradas 
+
+    FiltroPropiedades.forEach((propiedad) => {
+      cardPropiedades.innerHTML += `
       <div class="col py-2">
         <div class="card">
           <img src="${propiedad.src}" class="card-img-top">
@@ -202,26 +202,33 @@ if ( dormitorios == ''|| desde == '' || hasta == '' ){
             <h5 class="card-title">${propiedad.nombre}</h5>
             <p class="card-text">Cuartos: ${propiedad.habitaciones}</p>
             <p class="card-text">Metros: ${propiedad.metros}</p>
+            <button class="btn-secundario" onclick="mostrarInfoCompleta('${propiedad.nombre}', '${propiedad.descripcion}', '${propiedad.src}', ${propiedad.habitaciones}, ${propiedad.metros})">Ver Detalles</button>
           </div>
         </div>
       </div>
     `;
-  });
+    });
 
-  // Actualizar la propiedad LENGTH
+    // Actualizar la propiedad LENGTH
     contadorBusqueda.innerHTML = FiltroPropiedades.length;
     console.log(FiltroPropiedades);
-}
+  }
 }
 
-/* ------ Mostrar y reservar  ------ */ 
+/* ------ Mostrar y reservar  ------ */
 
 
 const mostrarInfoCompleta = (nombre, descripcion, src, habitaciones, metros) => {
   const popUpPropiedad = document.createElement('div');
-  const indicePropiedad = propiedades.findIndex(propiedad => propiedad.nombre === nombre);
-  // ID único
-  const modalId = `popUpPropiedad${indicePropiedad}`; 
+  const propiedad = propiedades.find(propiedad => propiedad.nombre === nombre);
+
+  // Validar que la propiedad existe - CHAT
+  if (!propiedad) {
+    console.error('La propiedad no se encontró.');
+    return;
+  }
+
+  const modalId = `popUpPropiedad_${propiedad.nombre.replace(/\s+/g, '_')}`;
 
   popUpPropiedad.innerHTML = `
     <div class="modal fade" id="${modalId}" tabindex="-1" aria-labelledby="${modalId}Label" aria-hidden="true">
@@ -250,7 +257,7 @@ const mostrarInfoCompleta = (nombre, descripcion, src, habitaciones, metros) => 
                 <input type="tel" class="form-control" id="telefonoUsuario" required>
             </div>
             <!-- Agrega más campos según sea necesario -->
-            <button class="btn btn-success mt-3" onclick="realizarReserva('${modalId}', '${nombre}')">Reservar</button>
+            <button class="btn-secundario" onclick="realizarReserva('${modalId}', '${nombre}')">Reservar</button>
             </form>
           </div>
         </div>
@@ -275,8 +282,6 @@ const realizarReserva = (modalId, nombrePropiedad) => {
     alert('Por favor, completa todos los campos para realizar la reserva.');
     return;
   }
-
-  // Puedes hacer algo con otrosDatosUsuario si es necesario
 
   const nuevaReserva = new Usuario(nombreUsuario, emailUsuario, telefonoUsuario);
 

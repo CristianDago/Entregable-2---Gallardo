@@ -1,56 +1,136 @@
+* {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
 
-*{
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    
-    }
-    
-    body{
-        background-color: #ededed!important;
-    }
-    
-    h2{
-        font-weight: 400!important;
-    }
-    
-    .navbar {
-        height: 70px;
-        background-color: #ffffff;
-    }
-    
-    .logo {
-        width: 100%;
-    }
-    
-    
-      .carousel-item {
-        height: 350px; 
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    
-    
-      #carouselExample {
-        overflow: hidden;
-      }
-    
-      .card-img, .card-img-top {
-        height: 200px;
-      }
+}
 
-      .blanco {
+body {
+  background-color: #ededed !important;
+}
 
-        background-color: #ffffff;
-        border-radius: 15px;
-        
-      
-      }
+h2 {
+  font-weight: 400 !important;
+}
+
+.color-beige {
+  color: #EAA494;
+}
+
+.color-blanco {
+  color: #ffffff;
+}
+
+.btn-principal {
+  background-color: #B6501E;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-principal:hover {
+  background-color: #ffffff;
+  color: #B6501E;
+
+}
+
+.btn-secundario {
+  background-color: #B6501E;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secundario:hover {
+  background-color: #392310;
+
+}
+
+.top-header {
+  background-color: #392310;
+
+  padding: 10px;
+}
 
 
-      footer {
-   
-        background-color: #ffffff;;
-      }
+.navbar {
+  padding: 20px 0px !important;
+  background-color: #ffffff;
+}
+
+.logo {
+  max-width: 180px;
+}
+
+
+.carousel-item {
+  height: 420px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#carouselExample {
+  overflow: hidden;
+}
+
+
+.banner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Ajusta el ancho según sea necesario */
+  height: 100%;
+  /* Ajusta la altura según sea necesario */
+  object-fit: cover;
+  z-index: 1;
+  /* Ajusta el valor según sea necesario; mayor z-index está sobre menor */
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  /* Ajusta el color del texto según tu diseño */
+  z-index: 2;
+  /* Ajusta el valor según sea necesario; mayor z-index está sobre menor */
+}
+
+.banner-text h1 {
+  font-size: 3.5em;
+  /* Ajusta el tamaño del título según tu diseño */
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+
+
+.card-img,
+.card-img-top {
+  height: 200px;
+}
+
+.buscador {
+
+  background-image: url("../img/pattern-dark.png");
+
+}
+
+footer {
+
+  background-color: #ffffff;
+  ;
+}
